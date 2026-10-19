@@ -762,8 +762,8 @@ h2 {
   border-top: 2px dashed var(--ink-soft);
 }
 
-.cta__micro {
-  margin-top: 1.4rem;
+.cta .cta__micro {
+  margin: 1.4rem auto 0;
   font-family: var(--font-mono);
   font-size: 0.82rem !important;
   text-transform: uppercase;
