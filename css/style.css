@@ -12,6 +12,7 @@
   --blue: #004e91;
   --blue-soft: rgba(0, 78, 145, 0.13);
   --wa: #25d366;
+  --wa-dark: #0b7a43;
   --radius: 14px;
   --font-display: "Instrument Serif", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -150,21 +151,24 @@ h2 {
   box-shadow: 6px 6px 0 rgba(33, 29, 23, 0.22);
 }
 
+/* Dezente Pill-Variante für WhatsApp (Alternative zum Formular) */
 .btn--whatsapp {
-  background: var(--wa);
-  color: #fff;
-  box-shadow: 4px 4px 0 var(--ink);
+  background: var(--card);
+  border-color: var(--wa);
+  color: var(--wa-dark);
+  border-radius: 999px;
+  box-shadow: none;
+  padding: 0.8rem 1.6rem;
 }
+
+.btn--whatsapp svg { color: var(--wa); }
 
 .btn--whatsapp:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--ink);
+  background: rgba(37, 211, 102, 0.12);
+  transform: translateY(-1px);
 }
 
-.btn--whatsapp:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--ink);
-}
+.btn--whatsapp:active { transform: none; }
 
 .btn--small { padding: 0.55rem 1.1rem; font-size: 0.82rem; }
 .btn--full { width: 100%; }
@@ -377,30 +381,30 @@ h2 {
   margin: 0.9rem 0 1rem;
 }
 
-.receipt__barcode {
-  height: 40px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--ink) 0 2px, transparent 2px 5px,
-    var(--ink) 5px 6px, transparent 6px 9px,
-    var(--ink) 9px 12px, transparent 12px 14px,
-    var(--ink) 14px 15px, transparent 15px 19px
-  );
+/* Barcode als SVG, keine Gradient-Artefakte */
+.barcode {
+  display: block;
+  color: var(--ink);
 }
 
-/* Stempel auf dem Bon */
+.receipt__barcode {
+  width: 100%;
+  height: 40px;
+}
+
+/* Stempel oben links auf die Bon-Ecke */
 .receipt__stamp {
   position: absolute;
-  top: 42%;
-  left: -34px;
-  width: 104px;
-  height: 104px;
+  top: -26px;
+  left: -30px;
+  width: 96px;
+  height: 96px;
   border: 2.5px solid var(--blue);
   border-radius: 50%;
   color: var(--blue);
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-align: center;
@@ -846,13 +850,6 @@ h2 {
   width: 160px;
   height: 30px;
   margin-top: 1.4rem;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--ink) 0 2px, transparent 2px 5px,
-    var(--ink) 5px 6px, transparent 6px 9px,
-    var(--ink) 9px 12px, transparent 12px 14px,
-    var(--ink) 14px 15px, transparent 15px 19px
-  );
   opacity: 0.55;
 }
 
@@ -932,7 +929,7 @@ h2 {
 
   .hero__cta .btn { width: 100%; }
 
-  .receipt__stamp { left: auto; right: -20px; top: 46%; }
+  .receipt__stamp { left: -8px; top: -24px; }
 
   .wa-float { right: 16px; bottom: 16px; }
 }
